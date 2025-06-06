@@ -2,8 +2,21 @@
 
 set -e
 
-function run_test {
+DIRECTORY="./venv"
 
+function run_test {
+    if [ -d "$DIRECTORY" ]; then
+        python -m venv venv
+    fi
+    
+    . .venv/bin/activate
+
+    pip install ./artifacts/*.whl
+
+    python3 ./tests/user.py
+    python3 ./tests/group.py
+    python3 ./tests/dataset.py
+    python3 ./tests/resource.py
 }
 
 function clean_up {
@@ -23,5 +36,6 @@ function clean_up {
 # Run test
 run_test
 
-# Run clean up function
+# Run emergency clean up function
+# This ensures no gunk is left on the system
 clean_up
