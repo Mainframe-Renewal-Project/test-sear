@@ -5,7 +5,7 @@ add_result = sear(
         {
         "operation": "add", 
         "admin_type": "group", 
-        "userid": "SEARG1",
+        "group": "SEARG1",
         "traits": {
             "base:installation_data": "GROUP GENERATED DURING SEAR TESTING, NOT IMPORTANT",
         },
@@ -18,7 +18,7 @@ extract_result = sear(
         {
         "operation": "extract",
         "admin_type": "group",
-        "userid": "SEARG1"
+        "group": "SEARG1"
         },
     )
 
@@ -29,7 +29,7 @@ alter_result = sear(
         "operation": "alter", 
         "admin_type": "group", 
         "userid": "SEARG1",
-        "traits": {
+        "group": {
             "omvs:auto_gid": True,
         },
         },
@@ -41,7 +41,7 @@ delete_result = sear(
         {
         "operation": "delete",
         "admin_type": "group",
-        "userid": "SEARG1",
+        "group": "SEARG1",
         },
     )
 
