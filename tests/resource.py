@@ -22,7 +22,6 @@ extract_result = sear(
         "resource": "sear.test",
         "class": "appl",
         },
-        True
     )
 
 print(extract_result.result)

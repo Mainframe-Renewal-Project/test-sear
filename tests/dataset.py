@@ -20,7 +20,6 @@ extract_result = sear(
         "admin_type": "data-set", 
         "data_set": "SEARTEST.**.**",
         },
-        True
     )
 
 print(extract_result.result)

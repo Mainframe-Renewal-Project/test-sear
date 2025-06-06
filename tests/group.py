@@ -20,7 +20,6 @@ extract_result = sear(
         "admin_type": "group",
         "userid": "SEARG1"
         },
-        True
     )
 
 print(extract_result.result)
