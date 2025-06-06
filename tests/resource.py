@@ -15,18 +15,6 @@ add_result = sear(
 
 print(add_result.result)
 
-refresh_result = sear(
-    {
-        "operation": "alter", 
-        "admin_type": "racf-options", 
-        "traits": {
-            "base:refresh": True,
-        },
-    },
-)
-
-print(f"refresh result: {refresh_result.result}")
-
 extract_result = sear(
         {
         "operation": "extract",
@@ -42,7 +30,7 @@ alter_result = sear(
         {
         "operation": "alter", 
         "admin_type": "resource", 
-        "resource": "sear.test",
+        "resource": "SEAR.TEST",
         "class": "facility",
         "traits": {
             "base:universal_access": "READ",
