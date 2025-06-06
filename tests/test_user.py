@@ -1,12 +1,7 @@
 # Import SEAR
 from sear import sear
 
-successful_return_codes = {
-    "racf_reason_code": 0,
-    "racf_return_code": 0,
-    "saf_return_code": 0,
-    "sear_return_code": 0
-  }
+from helper import successful_return_codes
 
 def test_add_user(delete_user):
     add_result = sear(
