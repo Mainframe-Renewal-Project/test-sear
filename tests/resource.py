@@ -31,8 +31,8 @@ extract_result = sear(
         {
         "operation": "extract",
         "admin_type": "resource",
-        "resource": "sear.test",
-        "class": "facility",
+        "resource": "SEAR.TEST",
+        "class": "FACILITY",
         },
     )
 
