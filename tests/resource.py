@@ -31,7 +31,7 @@ alter_result = sear(
         "operation": "alter", 
         "admin_type": "resource", 
         "resource": "SEAR.TEST",
-        "class": "facility",
+        "class": "FACILITY",
         "traits": {
             "base:universal_access": "READ",
         },
