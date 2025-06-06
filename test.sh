@@ -9,7 +9,7 @@ function run_test {
     python -m venv venv
     
     # Activate virtual environment
-    . .venv/bin/activate
+    . venv/bin/activate
 
     pip install ./artifacts/*.whl
 
