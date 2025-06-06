@@ -31,7 +31,7 @@ function clean_up {
     /bin/tsocmd "DELDSD DA(SEARTEST.**) GENERIC"
 
     # Delete resource profile, in case test fails
-    /bin/tsocmd "RDELETE APPL (SEAR.TEST)"
+    /bin/tsocmd "RDELETE FACILITY (SEAR.TEST)"
 }
 
 # Run test

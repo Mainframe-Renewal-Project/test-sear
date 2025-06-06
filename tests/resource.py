@@ -6,7 +6,7 @@ add_result = sear(
         "operation": "add", 
         "admin_type": "resource", 
         "resource": "sear.test",
-        "class": "appl",
+        "class": "facility",
         "traits": {
             "base:installation_data": "RESOURCE PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT",
         },
@@ -20,7 +20,7 @@ extract_result = sear(
         "operation": "extract",
         "admin_type": "resource",
         "resource": "sear.test",
-        "class": "appl",
+        "class": "facility",
         },
     )
 
@@ -31,7 +31,7 @@ alter_result = sear(
         "operation": "alter", 
         "admin_type": "resource", 
         "resource": "sear.test",
-        "class": "appl",
+        "class": "facility",
         "traits": {
             "base:universal_access": "READ",
         },
@@ -45,7 +45,7 @@ delete_result = sear(
         "operation": "delete",
         "admin_type": "resource",
         "resource": "sear.test",
-        "class": "appl",
+        "class": "facility",
         },
     )
 
