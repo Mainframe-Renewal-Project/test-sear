@@ -28,8 +28,8 @@ alter_result = sear(
         {
         "operation": "alter", 
         "admin_type": "group", 
-        "userid": "SEARG1",
-        "group": {
+        "group": "SEARG1",
+        "traits": {
             "omvs:auto_gid": True,
         },
         },
