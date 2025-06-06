@@ -13,11 +13,11 @@ function clean_up {
     # Delete group, in case test fails
     /bin/tsocmd "DELGROUP SEARG1"
 
-    # Delete resource profile, in case test fails
-    /bin/tsocmd "RDELETE APPL (SEAR.TEST)"
-
     # Delete dataset profile, in case test fails
     /bin/tsocmd "DELDSD DA(SEARTEST.**.**) GENERIC"
+
+    # Delete resource profile, in case test fails
+    /bin/tsocmd "RDELETE APPL (SEAR.TEST)"
 }
 
 # Run test
