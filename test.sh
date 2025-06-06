@@ -6,10 +6,7 @@ set -e
 DIRECTORY="venv"
 
 function run_test {
-    # Create virtual environment if it doesn't exist
-    if [ -d "$DIRECTORY" ]; then
-        python -m venv venv
-    fi
+    python -m venv venv
     
     # Activate virtual environment
     . .venv/bin/activate
