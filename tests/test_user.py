@@ -1,8 +1,6 @@
 # Import SEAR
 from sear import sear
 
-import helpers  # noqa: F401
-
 successful_return_codes = {
     "racf_reason_code": 0,
     "racf_return_code": 0,
