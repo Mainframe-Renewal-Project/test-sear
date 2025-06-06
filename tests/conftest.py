@@ -17,5 +17,5 @@ def delete_user():
 
 @pytest.fixture
 def create_user(delete_user):
-    run_tso_command(f"adduser {delete_user} DATA(USER GENERATED DURING SEAR TESTING, NOT IMPORTANT)")
+    run_tso_command(f"adduser {delete_user} DATA('USER GENERATED DURING SEAR TESTING, NOT IMPORTANT')")
     yield delete_user
