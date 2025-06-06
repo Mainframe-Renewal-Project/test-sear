@@ -3,7 +3,7 @@
 
 set -e
 
-DIRECTORY="./venv"
+DIRECTORY="venv"
 
 function run_test {
     # Create virtual environment if it doesn't exist
