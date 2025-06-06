@@ -13,6 +13,8 @@ function run_test {
 
     pip install ./artifacts/*.whl
 
+    pip install pytest
+
     # Runs the various test scripts
     pytest ./tests/user.py
     
