@@ -28,7 +28,7 @@ function clean_up {
     /bin/tsocmd "DELGROUP SEARG1"
 
     # Delete dataset profile, in case test fails
-    /bin/tsocmd "DELDSD DA(SEARTEST.**.**) GENERIC"
+    /bin/tsocmd "DELDSD DA(SEARTEST.**) GENERIC"
 
     # Delete resource profile, in case test fails
     /bin/tsocmd "RDELETE APPL (SEAR.TEST)"

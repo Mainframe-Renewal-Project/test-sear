@@ -5,7 +5,7 @@ add_result = sear(
         {
         "operation": "add", 
         "admin_type": "data-set", 
-        "data_set": "SEARTEST.**.**",
+        "data_set": "SEARTEST.**",
         "traits": {
             "base:installation_data": "DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT",
         },
@@ -18,7 +18,7 @@ extract_result = sear(
         {
         "operation": "extract",
         "admin_type": "data-set", 
-        "data_set": "SEARTEST.**.**",
+        "data_set": "SEARTEST.**",
         },
     )
 
@@ -28,7 +28,7 @@ delete_result = sear(
         {
         "operation": "delete",
         "admin_type": "data-set", 
-        "data_set": "SEARTEST.**.**",
+        "data_set": "SEARTEST.**",
         },
     )
 
