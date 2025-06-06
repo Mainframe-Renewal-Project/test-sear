@@ -1,8 +1,6 @@
 # This shell script runs the tests against a real build of SEAR
 # It also cleans up after them in case they failed
 
-set -e
-
 DIRECTORY="venv"
 
 function run_test {
