@@ -31,15 +31,15 @@ def test_extract_dataset(create_dataset):
     assert extract_result.result["return_codes"] == successful_return_codes
 
 def test_dataset_not_found():
-    extract_result = sear(
+    not_found_result = sear(
             {
             "operation": "extract",
             "admin_type": "data-set", 
             "data_set": "DOES.NOT.EXIST",
             },
         )
-    assert "errors" in str(extract_result.result)
-    assert extract_result.result["return_codes"] == dataset_not_found_return_codes
+    assert "errors" in str(not_found_result.result)
+    assert not_found_result.result["return_codes"] == dataset_not_found_return_codes
 
 def test_delete_dataset(create_dataset):
     delete_result = sear(
