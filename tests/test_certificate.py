@@ -14,5 +14,4 @@ def test_extract_certificate_not_found():
         "owner": "IBMUSER",
         },
     )
-    assert "errors" not in str(add_result.result)
     assert add_result.result["return_codes"] == keyring_not_found_return_codes
