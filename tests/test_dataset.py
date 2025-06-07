@@ -1,5 +1,5 @@
 
-from helper import successful_return_codes
+from helper import dataset_not_found_return_codes, successful_return_codes
 
 # Import SEAR
 from sear import sear
@@ -29,6 +29,17 @@ def test_extract_dataset(create_dataset):
         )
     assert "errors" not in str(extract_result.result)
     assert extract_result.result["return_codes"] == successful_return_codes
+
+def test_dataset_not_found():
+    extract_result = sear(
+            {
+            "operation": "extract",
+            "admin_type": "data-set", 
+            "data_set": "DOES.NOT.EXIST",
+            },
+        )
+    assert "errors" not in str(extract_result.result)
+    assert extract_result.result["return_codes"] == dataset_not_found_return_codes
 
 def test_delete_dataset(create_dataset):
     delete_result = sear(

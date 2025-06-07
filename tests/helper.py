@@ -18,3 +18,10 @@ user_not_found_return_codes = {
     "saf_return_code": 4,
     "sear_return_code": 4,
   }
+
+dataset_not_found_return_codes = {
+    "racf_reason_code": 4,
+    "racf_return_code": 4,
+    "saf_return_code": 4,
+    "sear_return_code": 4,
+  }
