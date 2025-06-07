@@ -1,7 +1,9 @@
+
+from helper import successful_return_codes
+
 # Import SEAR
 from sear import sear
 
-from helper import successful_return_codes
 
 def test_setropts_extract():
     extract_result = sear(
