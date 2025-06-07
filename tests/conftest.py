@@ -44,7 +44,7 @@ def create_group(delete_group):
 
 @pytest.fixture
 def delete_dataset():
-    profile_name=f"SEARTEST.TEST{secrets.token_hex(2)}.**".upper()
+    profile_name=f"SEARTEST.TEST{secrets.token_hex(2)}".upper()
     yield profile_name
     try:  # noqa: SIM105
         run_tso_command(f"DELDSD ({profile_name})")
@@ -53,7 +53,7 @@ def delete_dataset():
 
 @pytest.fixture
 def create_dataset(delete_dataset):
-    run_tso_command(f"ADDSD ({delete_dataset}) DATA('DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT') GENERIC OWNER(SYS1)")  # noqa: E501
+    run_tso_command(f"ADDSD ({delete_dataset}) DATA('DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT') OWNER(SYS1)")  # noqa: E501
     run_tso_command("SETROPTS GENERIC(DATASET) REFRESH")
     yield delete_dataset
 
