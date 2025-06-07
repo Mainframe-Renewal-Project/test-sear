@@ -2,5 +2,5 @@ successful_return_codes = {
     "racf_reason_code": 0,
     "racf_return_code": 0,
     "saf_return_code": 0,
-    "sear_return_code": 0
+    "sear_return_code": 0  # noqa: COM812
   }
