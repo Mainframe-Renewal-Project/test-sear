@@ -1,5 +1,5 @@
 
-from helper import successful_return_codes
+from helper import successful_return_codes, user_not_found_return_codes
 
 # Import SEAR
 from sear import sear
@@ -27,6 +27,16 @@ def test_extract_user(create_user):
             },
         )
     assert extract_result.result["return_codes"] == successful_return_codes
+
+def test_user_not_found(create_user):
+    user_not_found_result = sear(
+            {
+            "operation": "extract",
+            "admin_type": "user",
+            "userid": "JMCCLANE",
+            },
+        )
+    assert user_not_found_result.result["return_codes"] == user_not_found_return_codes
 
 def test_alter_user(create_user):
     alter_result = sear(
