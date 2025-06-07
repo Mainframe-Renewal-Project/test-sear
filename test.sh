@@ -3,22 +3,26 @@
 
 set -e
 
-DIRECTORY="venv"
+repo_dir="$PWD/test-sear"
+artifacts_dir="$PWD/artifacts"
 
 function run_test {
+    pushd "$repo_dir"
+
     python -m venv venv
     
     # Activate virtual environment
     . venv/bin/activate
 
-    pip install ./artifacts/*.whl
-    rm ./artifacts/*
+    pip install $artifacts_dir/*.whl
+    rm $artifacts_dir/*
 
     pip install pytest pytest-md
 
     # Runs the various test scripts
     pytest ./tests/ -vv --md=report.md
-    
+
+    popd
 }
 
 # Run test
