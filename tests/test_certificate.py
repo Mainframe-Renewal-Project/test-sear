@@ -27,3 +27,15 @@ def test_extract_keyring(create_keyring):
         },
     )
     assert extract_result.result["return_codes"] == successful_return_codes
+
+def test_add_keyring(delete_keyring):
+    keyring, owner = delete_keyring
+    add_result = sear(
+        {
+        "operation": "add", 
+        "admin_type": "keyring", 
+        "keyring": keyring,
+        "owner": owner,
+        },
+    )
+    assert add_result.result["return_codes"] == successful_return_codes
