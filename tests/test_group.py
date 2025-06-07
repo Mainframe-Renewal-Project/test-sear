@@ -1,5 +1,5 @@
 
-from helper import successful_return_codes
+from helper import group_not_found_return_codes, successful_return_codes
 
 # Import SEAR
 from sear import sear
@@ -27,6 +27,17 @@ def test_extract_group(create_group):
             },
         )
     assert extract_result.result["return_codes"] == successful_return_codes
+
+def test_group_not_found():
+    not_found_result = sear(
+            {
+            "operation": "extract",
+            "admin_type": "group", 
+            "data_set": "BADGRP",
+            },
+        )
+    assert "errors" in str(not_found_result.result)
+    assert not_found_result.result["return_codes"] == group_not_found_return_codes
 
 def test_alter_group(create_group):
     alter_result = sear(
