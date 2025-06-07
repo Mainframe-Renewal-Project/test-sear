@@ -53,7 +53,7 @@ def delete_dataset():
 
 @pytest.fixture
 def create_dataset(delete_dataset):
-    run_tso_command("SETROPTS RACLIST(DATASET) REFRESH")
+    run_tso_command("SETROPTS GENERIC(DATASET) REFRESH")
     run_tso_command(f"ADDSD ({delete_dataset}) DATA('DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT') GENERIC")  # noqa: E501
     yield delete_dataset
 
@@ -70,6 +70,6 @@ def delete_resource():
 @pytest.fixture
 def create_resource(delete_resource):
     profile_name, class_name = delete_resource
-    run_tso_command(f"SETROPTS RACLIST({class_name}) REFRESH")
+    run_tso_command(f"SETROPTS GENERIC({class_name}) REFRESH")
     run_tso_command(f"RDEFINE {class_name} ({profile_name}) DATA('RESOURCE PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT')")  # noqa: E501
     yield profile_name, class_name
