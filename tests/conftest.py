@@ -74,3 +74,5 @@ def create_resource(delete_resource):
     run_tso_command(f"SETROPTS GENERIC({class_name}) REFRESH")
     run_tso_command(f"SETROPTS RACLIST({class_name}) REFRESH")
     yield profile_name, class_name
+    run_tso_command(f"SETROPTS GENERIC({class_name}) REFRESH")
+    run_tso_command(f"SETROPTS RACLIST({class_name}) REFRESH")
