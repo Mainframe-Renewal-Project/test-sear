@@ -58,7 +58,7 @@ def create_dataset(delete_dataset):
 
 @pytest.fixture
 def delete_resource():
-    profile_name = "SEARTEST.**"
+    profile_name=f"SEARTEST.TEST{secrets.token_hex(2)}.**"
     class_name = "FACILITY"
     yield profile_name, class_name
     try:  # noqa: SIM105
