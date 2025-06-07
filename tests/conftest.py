@@ -64,8 +64,6 @@ def delete_resource():
     yield profile_name, class_name
     try:  # noqa: SIM105
         run_tso_command(f"RDELETE {class_name} ({profile_name})")
-        run_tso_command(f"SETROPTS GENERIC({class_name}) REFRESH")
-        run_tso_command(f"SETROPTS RACLIST({class_name}) REFRESH")
     except:  # noqa: E722
         pass
 
@@ -76,5 +74,21 @@ def create_resource(delete_resource):
     run_tso_command(f"SETROPTS GENERIC({class_name}) REFRESH")
     run_tso_command(f"SETROPTS RACLIST({class_name}) REFRESH")
     yield profile_name, class_name
-    run_tso_command(f"SETROPTS GENERIC({class_name}) REFRESH")
-    run_tso_command(f"SETROPTS RACLIST({class_name}) REFRESH")
+
+@pytest.fixture
+def delete_keyring():
+    ring_name=f"SEARTEST.RING{secrets.token_hex(2)}".upper()
+    owner = "SEARTEST"
+    yield ring_name, owner
+    try:  # noqa: SIM105
+        run_tso_command(f"RACDCERT DELRING({ring_name}) ID({owner})")
+    except:  # noqa: E722
+        pass
+
+@pytest.fixture
+def create_keyring(delete_keyring):
+    ring_name, owner = delete_keyring
+    run_tso_command(f"RACDCERT ADDRING({ring_name}) ID({owner})")  # noqa: E501
+    run_tso_command("SETROPTS RACLIST(DIGTRING) REFRESH")
+    yield ring_name, owner
+
