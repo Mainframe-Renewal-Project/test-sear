@@ -6,4 +6,5 @@ In the future this system may be expanded to more interfaces, as we add them.
 
 ## Dependencies
 
-- Pytest
+- pytest
+- pytest-md
