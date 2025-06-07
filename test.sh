@@ -13,10 +13,10 @@ function run_test {
 
     pip install ./artifacts/*.whl
 
-    pip install pytest
+    pip install pytest pytest-md
 
     # Runs the various test scripts
-    pytest ./tests/ -vvr
+    pytest ./tests/ -vv --md=report.md
     
 }
 
