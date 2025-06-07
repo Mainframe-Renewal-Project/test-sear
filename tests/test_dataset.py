@@ -7,7 +7,7 @@ add_result = sear(
         "admin_type": "data-set", 
         "data_set": "SEARTEST.**",
         "traits": {
-            "base:installation_data": "DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT",
+            "base:installation_data": "DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT",  # noqa: E501
         },
         },
     )

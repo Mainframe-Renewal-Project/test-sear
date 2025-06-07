@@ -1,7 +1,7 @@
 # Import SEAR
+from helper import successful_return_codes
 from sear import sear
 
-from helper import successful_return_codes
 
 def test_add_user(delete_user):
     add_result = sear(

@@ -1,7 +1,7 @@
 # Import SEAR
+from helper import successful_return_codes
 from sear import sear
 
-from helper import successful_return_codes
 
 def test_add_group(delete_group):
     add_result = sear(
