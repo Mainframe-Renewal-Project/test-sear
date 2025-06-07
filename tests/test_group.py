@@ -23,7 +23,7 @@ def test_extract_group(create_group):
             {
             "operation": "extract",
             "admin_type": "group",
-            "group": create_group
+            "group": create_group,
             },
         )
     assert extract_result.result["return_codes"] == successful_return_codes
