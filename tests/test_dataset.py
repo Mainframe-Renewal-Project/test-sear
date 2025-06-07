@@ -1,35 +1,39 @@
+
+from helper import successful_return_codes
+
 # Import SEAR
 from sear import sear
 
-add_result = sear(
-        {
-        "operation": "add", 
-        "admin_type": "data-set", 
-        "data_set": "SEARTEST.**",
-        "traits": {
-            "base:installation_data": "DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT",  # noqa: E501
-        },
-        },
-    )
 
-print(add_result.result)
+def test_add_dataset(delete_dataset):
+    add_result = sear(
+            {
+            "operation": "add", 
+            "admin_type": "data-set", 
+            "data_set": delete_dataset,
+            "traits": {
+                "base:installation_data": "DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT",  # noqa: E501
+            },
+            },
+        )
+    assert add_result.result["return_codes"] == successful_return_codes
 
-extract_result = sear(
-        {
-        "operation": "extract",
-        "admin_type": "data-set", 
-        "data_set": "SEARTEST.**",
-        },
-    )
+def test_extract_dataset(create_dataset):
+    extract_result = sear(
+            {
+            "operation": "extract",
+            "admin_type": "data-set", 
+            "data_set": create_dataset,
+            },
+        )
+    assert extract_result.result["return_codes"] == successful_return_codes
 
-print(extract_result.result)
-
-delete_result = sear(
-        {
-        "operation": "delete",
-        "admin_type": "data-set", 
-        "data_set": "SEARTEST.**",
-        },
-    )
-
-print(delete_result.result)
+def test_delete_dataset(create_dataset):
+    delete_result = sear(
+            {
+            "operation": "delete",
+            "admin_type": "data-set", 
+            "data_set": create_dataset,
+            },
+        )
+    assert delete_result.result["return_codes"] == successful_return_codes
