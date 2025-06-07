@@ -38,7 +38,7 @@ def test_user_not_found(create_user):
             "userid": "JMCCLANE",
             },
         )
-    assert "errors" not in str(user_not_found_result.result)
+    assert "errors" in str(user_not_found_result.result)
     assert user_not_found_result.result["return_codes"] == user_not_found_return_codes
 
 def test_alter_user(create_user):
