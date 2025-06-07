@@ -44,7 +44,7 @@ def test_delete_keyring(create_keyring):
     keyring, owner = create_keyring
     delete_result = sear(
         {
-        "operation": "add", 
+        "operation": "delete", 
         "admin_type": "keyring", 
         "keyring": keyring,
         "owner": owner,
