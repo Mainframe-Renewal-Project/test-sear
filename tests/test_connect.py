@@ -20,4 +20,5 @@ def test_add_connect(create_user):
             },
         )
     #run_tso_command(f"REMOVE {create_user} GROUP(SEARDUMY)")
+    assert "errors" not in str(delete_result.result)
     assert add_result.result["return_codes"] == successful_return_codes
