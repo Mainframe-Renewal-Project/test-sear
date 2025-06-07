@@ -33,6 +33,18 @@ def test_extract_resource_profile(create_resource):
     assert "errors" not in str(extract_result.result)
     assert extract_result.result["return_codes"] == successful_return_codes
 
+def test_resource_profile_not_found():
+    not_found_result = sear(
+            {
+            "operation": "extract",
+            "admin_type": "resource", 
+            "resource": "BAD.PROFILE.HAH",
+            "class": "APPL",
+            },
+        )
+    assert "errors" in str(not_found_result.result)
+    assert not_found_result.result["return_codes"] != successful_return_codes
+
 #def test_alter_resource_profile(create_resource):
 #    profile_name, class_name = create_resource
 #    alter_result = sear(
