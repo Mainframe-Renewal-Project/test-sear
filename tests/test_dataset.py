@@ -16,6 +16,7 @@ def test_add_dataset(delete_dataset):
             },
             },
         )
+    assert "errors" not in str(add_result.result)
     assert add_result.result["return_codes"] == successful_return_codes
 
 def test_extract_dataset(create_dataset):
@@ -37,4 +38,5 @@ def test_delete_dataset(create_dataset):
             "data_set": create_dataset,
             },
         )
+    assert "errors" not in str(delete_result.result)
     assert delete_result.result["return_codes"] == successful_return_codes

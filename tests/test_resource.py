@@ -30,6 +30,7 @@ def test_extract_resource_profile(create_resource):
             "class": class_name,
             },
         )
+    assert "errors" not in str(extract_result.result)
     assert extract_result.result["return_codes"] == successful_return_codes
 
 def test_alter_resource_profile(create_resource):
@@ -45,6 +46,7 @@ def test_alter_resource_profile(create_resource):
             },
             },
         )
+    assert "errors" not in str(alter_result.result)
     assert alter_result.result["return_codes"] == successful_return_codes
 
 def test_delete_resource_profile(create_resource):
@@ -57,4 +59,5 @@ def test_delete_resource_profile(create_resource):
             "class": class_name,
             },
         )
+    assert "errors" not in str(delete_result.result)
     assert delete_result.result["return_codes"] == successful_return_codes
