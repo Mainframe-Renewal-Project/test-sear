@@ -3,7 +3,7 @@ from sear import sear
 
 from helper import successful_return_codes
 
-def test_setropts_extract(delete_user):
+def test_setropts_extract():
     extract_result = sear(
         {
         "operation": "extract",
