@@ -1,5 +1,7 @@
-# Import SEAR
+
 from helper import successful_return_codes
+
+# Import SEAR
 from sear import sear
 
 
