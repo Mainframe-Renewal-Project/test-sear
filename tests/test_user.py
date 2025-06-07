@@ -12,7 +12,7 @@ def test_add_user(delete_user):
             "admin_type": "user", 
             "userid": delete_user,
             "traits": {
-                "base:installation_data": "USER GENERATED DURING SEAR TESTING, NOT IMPORTANT",
+                "base:installation_data": "USER GENERATED DURING SEAR TESTING, NOT IMPORTANT",  # noqa: E501
             },
             },
         )
