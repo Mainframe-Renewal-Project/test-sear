@@ -38,7 +38,7 @@ def test_dataset_not_found():
             "data_set": "DOES.NOT.EXIST",
             },
         )
-    assert "errors" not in str(extract_result.result)
+    assert "errors" in str(extract_result.result)
     assert extract_result.result["return_codes"] == dataset_not_found_return_codes
 
 def test_delete_dataset(create_dataset):
