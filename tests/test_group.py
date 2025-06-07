@@ -16,6 +16,7 @@ def test_add_group(delete_group):
             },
             },
         )
+    assert "errors" not in str(add_result.result)
     assert add_result.result["return_codes"] == successful_return_codes
 
 def test_extract_group(create_group):
@@ -26,6 +27,7 @@ def test_extract_group(create_group):
             "group": create_group,
             },
         )
+    assert "errors" not in str(extract_result.result)
     assert extract_result.result["return_codes"] == successful_return_codes
 
 def test_group_not_found():
@@ -50,6 +52,7 @@ def test_alter_group(create_group):
             },
             },
         )
+    assert "errors" not in str(alter_result.result)
     assert alter_result.result["return_codes"] == successful_return_codes
 
 def test_delete_group(create_group):
@@ -60,4 +63,5 @@ def test_delete_group(create_group):
             "group": create_group,
             },
         )
+    assert "errors" not in str(delete_result.result)
     assert delete_result.result["return_codes"] == successful_return_codes
