@@ -12,6 +12,7 @@ function run_test {
     . venv/bin/activate
 
     pip install ./artifacts/*.whl
+    rm ./artifacts/*
 
     pip install pytest pytest-md
 
