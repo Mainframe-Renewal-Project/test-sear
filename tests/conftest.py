@@ -64,6 +64,8 @@ def delete_resource():
     yield profile_name, class_name
     try:  # noqa: SIM105
         run_tso_command(f"RDELETE {class_name} ({profile_name})")
+        run_tso_command(f"SETROPTS GENERIC({class_name}) REFRESH")
+        run_tso_command(f"SETROPTS RACLIST({class_name}) REFRESH")
     except:  # noqa: E722
         pass
 
