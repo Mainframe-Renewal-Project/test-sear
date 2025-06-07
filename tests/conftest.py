@@ -53,7 +53,7 @@ def delete_dataset():
 
 @pytest.fixture
 def create_dataset(delete_dataset):
-    run_tso_command(f"ADDSD ({delete_dataset}) DATA('DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT') OWNER(SYS1)")  # noqa: E501
+    run_tso_command(f"ADDSD ('{delete_dataset}') DATA('DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT') OWNER(SYS1)")  # noqa: E501
     run_tso_command("SETROPTS GENERIC(DATASET) REFRESH")
     yield delete_dataset
 
