@@ -16,6 +16,7 @@ def test_add_user(delete_user):
             },
             },
         )
+    assert "errors" not in str(add_result.result)
     assert add_result.result["return_codes"] == successful_return_codes
 
 def test_extract_user(create_user):
@@ -26,6 +27,7 @@ def test_extract_user(create_user):
             "userid": create_user,
             },
         )
+    assert "errors" not in str(extract_result.result)
     assert extract_result.result["return_codes"] == successful_return_codes
 
 def test_user_not_found(create_user):
@@ -36,6 +38,7 @@ def test_user_not_found(create_user):
             "userid": "JMCCLANE",
             },
         )
+    assert "errors" not in str(user_not_found_result.result)
     assert user_not_found_result.result["return_codes"] == user_not_found_return_codes
 
 def test_alter_user(create_user):
@@ -49,6 +52,7 @@ def test_alter_user(create_user):
             },
             },
         )
+    assert "errors" not in str(alter_result.result)
     assert alter_result.result["return_codes"] == successful_return_codes
 
 def test_delete_user(create_user):
@@ -59,4 +63,5 @@ def test_delete_user(create_user):
             "userid": create_user,
             },
         )
+    assert "errors" not in str(delete_result.result)
     assert delete_result.result["return_codes"] == successful_return_codes
