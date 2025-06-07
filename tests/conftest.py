@@ -1,51 +1,59 @@
 
-import subprocess
-import pytest
 import secrets
+import subprocess
+
+import pytest
+
 
 def run_tso_command(command: str):
-    subprocess.run(f'tsocmd "{command}"', text=False, shell=True, check=True, capture_output=True)
+    subprocess.run(
+        f'tsocmd "{command}"', 
+        text=False, 
+        shell=True, 
+        check=True, 
+        capture_output=True,
+        )
 
 @pytest.fixture
 def delete_user():
     userid=f"SEAR{secrets.token_hex(2)}"
     yield userid
-    try:
+    try:  # noqa: SIM105
         run_tso_command(f"deluser {userid}")
     except:  # noqa: E722
         pass
 
 @pytest.fixture
 def create_user(delete_user):
-    run_tso_command(f"adduser {delete_user} DATA('USER GENERATED DURING SEAR TESTING, NOT IMPORTANT')")
+    run_tso_command(f"adduser {delete_user} DATA('USER GENERATED DURING SEAR TESTING, NOT IMPORTANT')")  # noqa: E501
     yield delete_user
 
 @pytest.fixture
 def delete_group():
     groupid=f"SEAR{secrets.token_hex(2)}"
     yield groupid
-    try:
+    try:  # noqa: SIM105
         run_tso_command(f"delgroup {groupid}")
     except:  # noqa: E722
         pass
 
 @pytest.fixture
 def create_group(delete_group):
-    run_tso_command(f"addgroup {delete_group} DATA('GROUP GENERATED DURING SEAR TESTING, NOT IMPORTANT')")
+    run_tso_command(f"addgroup {delete_group} DATA('GROUP GENERATED DURING SEAR TESTING, NOT IMPORTANT')")  # noqa: E501
     yield delete_group
 
 @pytest.fixture
 def delete_dataset():
     profile_name = "SEARTEST.**"
     yield profile_name
-    try:
+    try:  # noqa: SIM105
         run_tso_command(f"deldsd ({profile_name})")
     except:  # noqa: E722
         pass
 
 @pytest.fixture
 def create_dataset(delete_dataset):
-    run_tso_command(f"addsd ({delete_dataset}) DATA('DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT')")
+    run_tso_command(f"addsd ({delete_dataset}) DATA('DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT')")  # noqa: E501
     yield delete_dataset
 
 @pytest.fixture
@@ -53,7 +61,7 @@ def delete_resource():
     profile_name = "SEARTEST.**"
     class_name = "FACILITY"
     yield profile_name, class_name
-    try:
+    try:  # noqa: SIM105
         run_tso_command(f"rdelete {class_name} ({profile_name})")
     except:  # noqa: E722
         pass
@@ -61,5 +69,5 @@ def delete_resource():
 @pytest.fixture
 def create_resource(delete_resource):
     profile_name, class_name = delete_resource
-    run_tso_command(f"rdefine {class_name} ({profile_name}) DATA('RESOURCE PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT')")
+    run_tso_command(f"rdefine {class_name} ({profile_name}) DATA('RESOURCE PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT')")  # noqa: E501
     yield profile_name, class_name
