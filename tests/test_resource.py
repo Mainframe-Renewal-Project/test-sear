@@ -42,7 +42,7 @@ def test_alter_resource_profile(create_resource):
             "resource": profile_name,
             "class": class_name,
             "traits": {
-                "base:universal_access": "READ",
+                "base:universal_access": "Read",
             },
             },
         )
