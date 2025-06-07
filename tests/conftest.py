@@ -70,7 +70,7 @@ def delete_resource():
 @pytest.fixture
 def create_resource(delete_resource):
     profile_name, class_name = delete_resource
-    run_tso_command(f"RDEFINE {class_name} {profile_name} DATA('RESOURCE PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT') OWNER(SYS1)")  # noqa: E501
+    run_tso_command(f"RDEFINE {class_name} {profile_name} DATA('RESOURCE PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT') OWNER(SYS1) FGENERIC")  # noqa: E501
     run_tso_command(f"SETROPTS GENERIC({class_name}) REFRESH")
     run_tso_command(f"SETROPTS RACLIST({class_name}) REFRESH")
     yield profile_name, class_name
