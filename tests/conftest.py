@@ -44,7 +44,7 @@ def create_group(delete_group):
 
 @pytest.fixture
 def delete_dataset():
-    profile_name=f"SEARTEST.TEST{secrets.token_hex(2)}".upper()
+    profile_name=f"SEARTEST.TEST{secrets.token_hex(2)}.**".upper()
     yield profile_name
     try:  # noqa: SIM105
         run_tso_command(f"DELDSD ({profile_name})")
