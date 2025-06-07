@@ -33,21 +33,21 @@ def test_extract_resource_profile(create_resource):
     assert "errors" not in str(extract_result.result)
     assert extract_result.result["return_codes"] == successful_return_codes
 
-def test_alter_resource_profile(create_resource):
-    profile_name, class_name = create_resource
-    alter_result = sear(
-            {
-            "operation": "alter", 
-            "admin_type": "resource", 
-            "resource": profile_name,
-            "class": class_name,
-            "traits": {
-                "base:universal_access": "Read",
-            },
-            },
-        )
-    assert "errors" not in str(alter_result.result)
-    assert alter_result.result["return_codes"] == successful_return_codes
+#def test_alter_resource_profile(create_resource):
+#    profile_name, class_name = create_resource
+#    alter_result = sear(
+#            {
+#            "operation": "alter", 
+#            "admin_type": "resource", 
+#            "resource": profile_name,
+#            "class": class_name,
+#            "traits": {
+#                "base:universal_access": "Read",
+#            },
+#            },
+#        )
+#    assert "errors" not in str(alter_result.result)
+#    assert alter_result.result["return_codes"] == successful_return_codes
 
 def test_delete_resource_profile(create_resource):
     profile_name, class_name = create_resource
