@@ -82,6 +82,7 @@ def delete_keyring():
     yield ring_name, owner
     try:  # noqa: SIM105
         run_tso_command(f"RACDCERT DELRING({ring_name}) ID({owner})")
+        run_tso_command("SETROPTS RACLIST(DIGTRING) REFRESH")
     except:  # noqa: E722
         pass
 
