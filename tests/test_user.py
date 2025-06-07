@@ -23,7 +23,7 @@ def test_extract_user(create_user):
             {
             "operation": "extract",
             "admin_type": "user",
-            "userid": create_user
+            "userid": create_user,
             },
         )
     assert extract_result.result["return_codes"] == successful_return_codes
