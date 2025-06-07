@@ -5,6 +5,7 @@ set -e
 
 repo_dir="$PWD/test-sear"
 artifacts_dir="$PWD/artifacts"
+report_file="$PWD/report.md"
 
 function run_test {
     pushd "$repo_dir"
@@ -20,7 +21,7 @@ function run_test {
     pip install pytest pytest-md
 
     # Runs the various test scripts
-    pytest ./tests/ -vv --md=report.md
+    pytest ./tests/ -vv --md=$report_file
 
     popd
 }
