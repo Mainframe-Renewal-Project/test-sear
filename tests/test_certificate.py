@@ -5,7 +5,7 @@ from helper import keyring_not_found_return_codes, successful_return_codes
 from sear import sear
 
 
-def test_extract_certificate_not_found():
+def test_extract_keyring_not_found():
     add_result = sear(
         {
         "operation": "extract", 
