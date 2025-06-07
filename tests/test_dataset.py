@@ -26,7 +26,7 @@ def test_extract_dataset(create_dataset):
             "data_set": create_dataset,
             },
         )
-    assert "errors" in str(extract_result.result)
+    assert str(extract_result.result["errors"])
     assert extract_result.result["return_codes"] == successful_return_codes
 
 def test_delete_dataset(create_dataset):
