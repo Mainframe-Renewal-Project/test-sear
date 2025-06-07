@@ -63,7 +63,7 @@ def delete_resource():
     class_name = "FACILITY"
     yield profile_name, class_name
     try:  # noqa: SIM105
-        run_tso_command(f"RDELETE {class_name} ({profile_name}) GENERIC")
+        run_tso_command(f"RDELETE {class_name} ({profile_name})")
     except:  # noqa: E722
         pass
 
