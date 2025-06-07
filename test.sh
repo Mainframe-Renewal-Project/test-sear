@@ -16,7 +16,7 @@ function run_test {
     pip install pytest
 
     # Runs the various test scripts
-    pytest ./tests/ -vv
+    pytest ./tests/ -vv > output.txt
     
 }
 
