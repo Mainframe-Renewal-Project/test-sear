@@ -33,3 +33,33 @@ def delete_group():
 def create_group(delete_group):
     run_tso_command(f"addgroup {delete_group} DATA('GROUP GENERATED DURING SEAR TESTING, NOT IMPORTANT')")
     yield delete_group
+
+@pytest.fixture
+def delete_dataset():
+    profile_name = "SEARTEST.**"
+    yield profile_name
+    try:
+        run_tso_command(f"deldsd ({profile_name})")
+    except:  # noqa: E722
+        pass
+
+@pytest.fixture
+def create_dataset(delete_dataset):
+    run_tso_command(f"addsd ({delete_dataset}) DATA('DATASET PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT')")
+    yield delete_dataset
+
+@pytest.fixture
+def delete_resource():
+    profile_name = "SEARTEST.**"
+    class_name = "FACILITY"
+    yield profile_name, class_name
+    try:
+        run_tso_command(f"rdelete {class_name} ({profile_name})")
+    except:  # noqa: E722
+        pass
+
+@pytest.fixture
+def create_resource(delete_resource):
+    profile_name, class_name = delete_resource
+    run_tso_command(f"rdefine {class_name} ({profile_name}) DATA('RESOURCE PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT')")
+    yield profile_name, class_name
