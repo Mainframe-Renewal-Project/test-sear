@@ -1,52 +1,60 @@
+
+from helper import successful_return_codes
+
 # Import SEAR
 from sear import sear
 
-add_result = sear(
-        {
-        "operation": "add", 
-        "admin_type": "resource", 
-        "resource": "sear.test",
-        "class": "facility",
-        "traits": {
-            "base:installation_data": "RESOURCE PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT",
-        },
-        },
-    )
 
-print(add_result.result)
+def test_add_resource_profile(delete_resource):
+    profile_name, class_name = delete_resource
+    add_result = sear(
+            {
+            "operation": "add", 
+            "admin_type": "resource", 
+            "resource": profile_name,
+            "class": class_name,
+            "traits": {
+                "base:installation_data": "RESOURCE PROFILE GENERATED DURING SEAR TESTING, NOT IMPORTANT",  # noqa: E501
+            },
+            },
+        )
+    assert add_result.result["return_codes"] == successful_return_codes
 
-extract_result = sear(
-        {
-        "operation": "extract",
-        "admin_type": "resource",
-        "resource": "SEAR.TEST",
-        "class": "FACILITY",
-        },
-    )
+def test_extract_resource_profile(create_resource):
+    profile_name, class_name = create_resource
+    extract_result = sear(
+            {
+            "operation": "extract", 
+            "admin_type": "resource", 
+            "resource": profile_name,
+            "class": class_name,
+            },
+        )
+    assert extract_result.result["return_codes"] == successful_return_codes
 
-print(extract_result.result)
+def test_alter_resource_profile(create_resource):
+    profile_name, class_name = create_resource
+    alter_result = sear(
+            {
+            "operation": "alter", 
+            "admin_type": "resource", 
+            "resource": profile_name,
+            "class": class_name,
+            "traits": {
+                "base:universal_access": "READ",
+            },
+            },
+        )
+    assert alter_result.result["return_codes"] == successful_return_codes
 
-alter_result = sear(
-        {
-        "operation": "alter", 
-        "admin_type": "resource", 
-        "resource": "SEAR.TEST",
-        "class": "FACILITY",
-        "traits": {
-            "base:universal_access": "READ",
-        },
-        },
-    )
-
-print(alter_result.result)
-
-delete_result = sear(
-        {
-        "operation": "delete",
-        "admin_type": "resource",
-        "resource": "sear.test",
-        "class": "facility",
-        },
-    )
-
-print(delete_result.result)
+def test_delete_resource_profile(create_resource):
+    profile_name, class_name = create_resource
+    delete_result = sear(
+            {
+            "operation": "delete", 
+            "admin_type": "resource", 
+            "resource": profile_name,
+            "class": class_name,
+            },
+        )
+    assert delete_result.result["return_codes"] == successful_return_codes
