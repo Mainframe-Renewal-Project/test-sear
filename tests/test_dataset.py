@@ -32,7 +32,7 @@ def test_extract_dataset(create_dataset):
     assert "errors" not in str(extract_result.result)
     assert extract_result.result["return_codes"] == successful_return_codes
 
-def test_dataset_not_found():
+def test_dataset_extract_not_found():
     """This test is supposed to fail"""
     not_found_result = sear(
             {
@@ -43,6 +43,17 @@ def test_dataset_not_found():
         )
     assert "errors" in str(not_found_result.result)
     assert not_found_result.result["return_codes"] == dataset_not_found_return_codes
+
+def test_dataset_extract_missing_dataset():
+    """This test is supposed to fail"""
+    not_found_result = sear(
+            {
+            "operation": "extract",
+            "admin_type": "data-set", 
+            },
+        )
+    assert "errors" in str(not_found_result.result)
+    assert not_found_result.result["return_codes"] != successful_return_codes
 
 def test_delete_dataset(create_dataset):
     """This test is supposed to succeed"""
