@@ -32,7 +32,6 @@ def test_add_resource_permit(create_user, create_resource):
             "resource": profile_name,
             "class": class_name,
             "userid": create_user,
-            "generic": True,
             "traits": {
                 "base:access": "READ",
             },
