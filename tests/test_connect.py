@@ -5,7 +5,8 @@ from helper import successful_return_codes
 from sear import sear
 
 
-def test_connect(create_user):
+def test_create_connect(create_user):
+    """This test is supposed to succeed"""
     connect_result = sear(
             {
             "operation": "alter", 
@@ -20,7 +21,8 @@ def test_connect(create_user):
     assert "errors" not in str(connect_result.result)
     assert connect_result.result["return_codes"] == successful_return_codes
 
-def test_connect_missing_group(create_user):
+def test_create_connect_missing_group(create_user):
+    """This test is supposed to fail"""
     connect_result = sear(
             {
             "operation": "alter", 
