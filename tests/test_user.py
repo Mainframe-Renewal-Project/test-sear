@@ -44,13 +44,12 @@ def test_user_extract_not_found():
     assert "errors" in str(user_not_found_result.result)
     assert user_not_found_result.result["return_codes"] == user_not_found_return_codes
 
-def test_user_extract_missing_userid(create_user):
+def test_user_extract_missing_userid():
     """This test is supposed to fail"""
     user_not_found_result = sear(
             {
             "operation": "extract",
             "admin_type": "user",
-            "userid": create_user,
             },
         )
     assert "errors" in str(user_not_found_result.result)
