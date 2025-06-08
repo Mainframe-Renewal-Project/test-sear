@@ -6,6 +6,7 @@ from sear import sear
 
 
 def test_add_group(delete_group):
+    """This test is supposed to succeed"""
     add_result = sear(
             {
             "operation": "add", 
@@ -20,6 +21,7 @@ def test_add_group(delete_group):
     assert add_result.result["return_codes"] == successful_return_codes
 
 def test_extract_group(create_group):
+    """This test is supposed to succeed"""
     extract_result = sear(
             {
             "operation": "extract",
@@ -31,6 +33,7 @@ def test_extract_group(create_group):
     assert extract_result.result["return_codes"] == successful_return_codes
 
 def test_group_not_found():
+    """This test is supposed to fail"""
     not_found_result = sear(
             {
             "operation": "extract",
@@ -42,6 +45,7 @@ def test_group_not_found():
     assert not_found_result.result["return_codes"] != successful_return_codes
 
 def test_alter_group(create_group):
+    """This test is supposed to succeed"""
     alter_result = sear(
             {
             "operation": "alter", 
@@ -56,6 +60,7 @@ def test_alter_group(create_group):
     assert alter_result.result["return_codes"] == successful_return_codes
 
 def test_delete_group(create_group):
+    """This test is supposed to succeed"""
     delete_result = sear(
             {
             "operation": "delete",
