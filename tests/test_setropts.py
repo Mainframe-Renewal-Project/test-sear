@@ -13,5 +13,5 @@ def test_setropts_extract():
         "admin_type": "racf-options",
         },
     )
-    assert "errors" not in str(delete_result.result)
+    assert "errors" not in str(extract_result.result)
     assert extract_result.result["return_codes"] == successful_return_codes
