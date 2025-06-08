@@ -21,7 +21,7 @@ function run_test {
     pip install pytest pytest-md
 
     # Runs the various test scripts
-    pytest ./tests/ -vv --md=$report_file
+    pytest tests/ -vv --md=$report_file
 
     popd
 }
