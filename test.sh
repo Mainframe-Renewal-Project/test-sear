@@ -3,7 +3,7 @@
 
 set -e
 
-repo_dir="$PWD/test-sear"
+repo_dir="$PWD/"
 artifacts_dir="$PWD/artifacts"
 report_file="$PWD/report.md"
 
