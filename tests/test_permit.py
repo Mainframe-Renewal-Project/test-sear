@@ -6,6 +6,7 @@ from sear import sear
 
 
 def test_add_dataset_permit(create_user, create_dataset):
+    """This test is supposed to succeed"""
     add_result = sear(
             {
             "operation": "alter", 
