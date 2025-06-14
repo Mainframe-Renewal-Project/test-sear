@@ -11,7 +11,7 @@ report_file="$PWD/report.md"
 function run_test {
     pushd "$repo_dir"
 
-    python -m venv "$PWD/.venv"
+    python -m venv "$repo_dir/.venv"
 
     # Fetch tests
     echo "Fetching ref: $repo_ref"
@@ -21,7 +21,7 @@ function run_test {
     git checkout "origin/$repo_ref"
     
     # Activate virtual environment
-    . "$PWD/.venv/bin/activate"
+    . "$repo_dir/.venv/bin/activate"
 
     pip install $artifacts_dir/*.whl
     rm $artifacts_dir/*
