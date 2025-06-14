@@ -9,7 +9,7 @@ artifacts_dir="$PWD/artifacts"
 report_file="$PWD/report.md"
 
 function run_test {
-    pushd "$PWD"
+    pushd "$repo_dir"
 
     python -m venv venv
 
