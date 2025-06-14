@@ -3,14 +3,22 @@
 
 set -e
 
-repo_dir="$PWD/"
+repo_dir="$PWD/sear"
+repo_ref="main"
 artifacts_dir="$PWD/artifacts"
 report_file="$PWD/report.md"
 
 function run_test {
-    pushd "$repo_dir"
+    pushd "$PWD"
 
     python -m venv venv
+
+    # Fetch tests
+    echo "Fetching ref: $repo_ref"
+
+    git fetch --tags origin "$repo_ref"
+    git clean -dxf
+    git checkout "origin/$repo_ref"
     
     # Activate virtual environment
     . venv/bin/activate
