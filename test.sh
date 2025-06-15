@@ -11,15 +11,16 @@ report_file="$PWD/report.md"
 function run_test {
     pushd "$repo_dir"
 
-    python -m venv .venv
-
     # Fetch tests
     echo "Fetching ref: $repo_ref"
 
     git fetch --tags origin "$repo_ref"
     git clean -dxf
     git checkout "origin/$repo_ref"
-    
+   
+    # Create virtual environment
+    python -m venv .venv
+
     # Activate virtual environment
     . .venv/bin/activate
 
@@ -29,7 +30,7 @@ function run_test {
     pip install pytest pytest-md
 
     # Runs the various test scripts
-    pytest -vv --md=$report_file
+    pytest python_tests -vv --md=$report_file
 
     popd
 }
