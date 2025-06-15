@@ -30,7 +30,7 @@ function run_test {
     pip install pytest pytest-md
 
     # Runs the various test scripts
-    pytest -vv --md=$report_file
+    pytest python_tests -vv --md=$report_file
 
     popd
 }
