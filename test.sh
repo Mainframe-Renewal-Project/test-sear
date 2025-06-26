@@ -4,7 +4,7 @@
 set -e
 
 repo_dir="$PWD/sear"
-repo_ref="main"
+repo_ref="dev"
 artifacts_dir="$PWD/artifacts"
 report_file="$PWD/report.md"
 
@@ -19,7 +19,7 @@ function run_test {
     git checkout "origin/$repo_ref"
    
     # Create virtual environment
-    python -m venv .venv
+    python -m venv .venv --system-site-packages
 
     # Activate virtual environment
     . .venv/bin/activate
