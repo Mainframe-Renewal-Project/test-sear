@@ -22,7 +22,7 @@ function run_test {
     # Create virtual environment
     $1 -m venv ".venv-$1" --system-site-packages
 
-    "./.venv-$1/bin/pip" install $artifacts_dir/*"$2"*.whl
+    "./.venv-$1/bin/pip" install $artifacts_dir/*"$2"*.whl --force-reinstall
 
     "./.venv-$1/bin/pip" install pytest pytest-md
 
