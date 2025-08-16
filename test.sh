@@ -10,6 +10,7 @@ report_file="$PWD/report.md"
 
 function run_test {
     pushd "$repo_dir"
+    echo "Testing with Python: $2"
 
     # Fetch tests
     echo "Fetching ref: $repo_ref"
@@ -19,13 +20,12 @@ function run_test {
     git checkout "origin/$repo_ref"
    
     # Create virtual environment
-    python -m venv .venv --system-site-packages
+    $1 -m venv ".venv-$1" --system-site-packages
 
     # Activate virtual environment
-    . .venv/bin/activate
+    "./.venv-$1/bin/pip"
 
-    pip install $artifacts_dir/*.whl
-    rm $artifacts_dir/*
+    pip install $artifacts_dir/*"$2"*.whl
 
     pip install pytest pytest-md
 
@@ -36,4 +36,7 @@ function run_test {
 }
 
 # Run test
-run_test
+run_test python3.12 cp312
+run_test python3.13 cp313
+
+rm $artifacts_dir/*
