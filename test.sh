@@ -23,11 +23,11 @@ function run_test {
     $1 -m venv ".venv-$1" --system-site-packages
 
     # Activate virtual environment
-    "./.venv-$1/bin/pip"
+    "./.venv-$1/bin/activate"
 
-    pip install $artifacts_dir/*"$2"*.whl
+    "./.venv-$1/bin/pip" install $artifacts_dir/*"$2"*.whl
 
-    pip install pytest pytest-md
+    "./.venv-$1/bin/pip" install pytest pytest-md
 
     # Runs the various test scripts
     pytest python_tests -vv --md=$report_file
