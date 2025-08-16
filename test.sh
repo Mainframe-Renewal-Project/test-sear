@@ -26,11 +26,8 @@ function run_test {
 
     "./.venv-$1/bin/pip" install pytest pytest-md
 
-    # Activate virtual environment
-    "./.venv-$1/bin/activate"
-
     # Runs the various test scripts
-    pytest python_tests -vv --md=$report_file
+    "./.venv-$1/bin/pytest" python_tests -vv --md=$report_file
 
     popd
 }
