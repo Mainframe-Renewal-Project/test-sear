@@ -33,7 +33,7 @@ function run_test {
 }
 
 # Run test
-run_test python3.12 cp312
-run_test python3.13 cp313
+run_test python3.12 py312
+run_test python3.13 py313
 
 rm $artifacts_dir/*
